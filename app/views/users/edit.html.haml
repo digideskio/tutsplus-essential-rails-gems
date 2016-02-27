@@ -1,0 +1,19 @@
+%h1 Edit user info
+
+=form_for @user, url: user_path do |f|
+  -if @user.errors.any?
+    %ul
+      -@user.errors.full_messages.each do |error|
+        %li=error
+  %p
+    =f.label :name
+    =f.text_field :name, class: "form-control"
+  %p
+    =f.label :password
+    =f.password_field :password, class: "form-control"
+  %p
+    =f.label :password_confirmation
+    =f.password_field :password_confirmation, class: "form-control"
+
+  %p
+    =f.button "Update data", class: "btn btn-primary"
